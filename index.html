@@ -2,35 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- Mobile Fullscreen -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ee9ca7">
+
 <title>Happy Birthday</title>
 
+<!-- Birthday Font -->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
+
   body {
     margin: 0;
-    padding: 20px;
+    padding: 10px;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     font-family: 'Pacifico', cursive;
   }
 
+  /* 🎶 Music Button */
   .music-btn {
-    display: block;
-    margin: 10px auto 20px;
-    padding: 10px 20px;
+    width: 100%;
+    padding: 12px;
     font-size: 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     background: #c2185b;
     color: white;
+    margin-bottom: 15px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
+  /* Grid */
   .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr); /* Mobile */
+    gap: 10px;
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .box {
@@ -39,10 +55,12 @@
     padding: 14px;
     text-align: center;
     font-size: 20px;
+    border-radius: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     opacity: 0;
     transform: scale(0.8);
     transition: all 0.4s ease;
+
   }
 
   .box.show {
@@ -54,20 +72,25 @@
 
 <body>
 
+<!-- 🎶 Music Button -->
 <button class="music-btn" onclick="playMusic()">🎶 Play Birthday Music</button>
 
+<!-- 🎵 Audio -->
 <audio id="music" loop>
   <source src="bday.mp3" type="audio/mpeg">
 </audio>
 
+<!-- 🎂 Birthday Messages -->
 <div class="container" id="birthday"></div>
 
 <script>
+  /* Music */
   const music = document.getElementById("music");
   function playMusic() {
     music.play();
   }
 
+  /* Step-by-step messages */
   const container = document.getElementById("birthday");
   let count = 0;
 
