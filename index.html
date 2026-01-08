@@ -59,7 +59,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     opacity: 0;
     transform: scale(0.8);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 
   }
 
@@ -95,7 +95,7 @@
   let count = 0;
 
   const interval = setInterval(() => {
-    if (count >= 200) {
+    if (count >= 1000) {
       clearInterval(interval);
       return;
     }
@@ -111,7 +111,7 @@
     }, 50);
 
     count++;
-  }, 120);
+  }, 70);
 </script>
 
 </body>
